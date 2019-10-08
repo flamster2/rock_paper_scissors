@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Rock, Paper, Scissors</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/wss/fonts?families=SF+Pro,v2|SF+Pro+Icons,v1">
+  </head>
+
+  <body>
+    <div id="title">
+      <h1>Rock, Paper, Scissors.</h1>
+    </div>
+
+    <div class="navbar">
+      <div class="subnav">
+        <button class="subnavbtn" id="playerName">
+          New player
+        </button>
+        <div class="subnav-content">
+          <a onclick="enterName()">Change player name</a>
+        </div>
+      </div>
+
+      <div class="subnav">
+          <div class="subnav">
+              <a class="subnavbtn" id="newGame" onclick="newGame()">New game</a>
+          </div>
+      </div>
+
+      <div class="subnav">
+        <button class="subnavbtn" id="selectedDifficulty">
+          Difficulty: select
+        </button>
+        <div class="subnav-content">
+          <a onclick="difficulty('Normal')">Normal</a>
+          <a onclick="difficulty('Hard')">Hard</a>
+        </div>
+      </div>
+
+      <div class="subnav">
+        <p class="subnavbtn" id="overallScore">Stats</p>
+        <div class="subnav-content">
+          <a onclick="reset()">Reset</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br />
+      <p id="greeting"></p>
+
+      <div id="bestOf">
+        <p>Best of?</p>
+        <button onclick="bestOf(1)">1</button>
+        <button onclick="bestOf(3)">3</button>
+        <button onclick="bestOf(5)">5</button>
+        <button onclick="bestOf(prompt())">Custom</button>
+      </div>
+
+      <p id="greetingRounds"></p>
+      <p id="greetingDifficulty"></p>
+
+      <div id="choose">
+        <p>Choose your weapon!</p>
+
+        <div id="normal">
+          <button onclick="oneRoundNormal('rock')">Rock</button>
+          <button onclick="oneRoundNormal('paper')">Paper</button>
+          <button onclick="oneRoundNormal('scissors')">
+            Scissors
+          </button>
+        </div>
+      </div>
+
+      <p id="result"></p>
+      <p id="score"></p>
+      <p id="round"></p>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </body>
+</html>
