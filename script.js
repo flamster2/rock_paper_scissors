@@ -8,30 +8,40 @@ let rounds = 0;
 
 let playerName = "";
 
-let difficultyLevel = "";
+let difficultyLevel = "normal";
+
+document.getElementById("playerNameBigScore").innerHTML = "";
+document.getElementById("bigScoreNumberPlayer").innerHTML = "";
+document.getElementById("comNameBigScore").innerHTML = "";
+document.getElementById("bigScoreNumberCom").innerHTML = "";
 
 function enterName() {
   playerName = prompt("What's your name?");
 
-  if (input = null) {
-    playerName = 'Guest'
+  if ((input === null)) {
+    return;
   } else {
+    document.getElementById("greeting").innerHTML =
+      "Hello " + playerName + ", let's go!";
 
-  document.getElementById("greeting").innerHTML =
-    "Hello " + playerName + ", let's go!";
+    overallScoreCom = 0;
+    overallScoreP1 = 0;
+    document.getElementById("overallScore").innerHTML =
+      "Overall score: " +
+      playerName +
+      " " +
+      overallScoreP1 +
+      ":" +
+      " " +
+      overallScoreCom +
+      " Computer";
 
-  overallScoreCom = 0;
-  overallScoreP1 = 0;
-  document.getElementById("overallScore").innerHTML = "Overall score: " +
-  playerName +
-  " " +
-  overallScoreP1 +
-  ":" +
-  " " +
-  overallScoreCom +
-  " Computer";
-  document.getElementById("playerName").innerHTML = "Hi, " + playerName + "!";
+    ddocument.getElementById("playerNameBigScore").innerHTML = "";
+    document.getElementById("bigScoreNumberPlayer").innerHTML = "";
+    document.getElementById("comNameBigScore").innerHTML = "";
+    document.getElementById("bigScoreNumberCom").innerHTML = "";
   }
+  document.getElementById("playerName").innerHTML = "Hi, " + playerName + "!";
 }
 
 function reset() {
@@ -46,36 +56,53 @@ function reset() {
     " " +
     overallScoreCom +
     " Computer";
+  document.getElementById("playerNameBigScore").innerHTML = "";
+  document.getElementById("bigScoreNumberPlayer").innerHTML = "";
+  document.getElementById("comNameBigScore").innerHTML = "";
+  document.getElementById("bigScoreNumberCom").innerHTML = "";
+
+  document.getElementById("result").innerHTML = "";
+      document.getElementById("round").innerHTML = "";
+      document.getElementById("greetingRounds").innerHTML = "";
+      document.getElementById("score").innerHTML = "";
+
+      document.getElementById("choose").style.display = "none";
+
+      document.getElementById("bestOf").style.display = "none";
+
+      document.getElementById("greetingDifficulty").innerHTML = "";
+
+      document.getElementById("greeting").innerHTML = "";
 }
 
 function newGame() {
-  if (difficultyLevel.length ==0) {
-      alert("Please select a difficulty level!")
-  } else {
-    if (playerName.length == 0) {
-    enterName();
-    newGame();
-  } else {
-    rounds = 0;
+    if ((playerName === null) || (playerName.length == 0)) {
+      enterName();
+      newGame();
+    } else {
+      rounds = 0;
 
-    scoreP1 = 0;
-    scoreCom = 0;
-    counter = 0;
+      scoreP1 = 0;
+      scoreCom = 0;
+      counter = 0;
 
-    document.getElementById("result").innerHTML = "";
-    document.getElementById("round").innerHTML = "";
-    document.getElementById("greetingRounds").innerHTML = "";
-    document.getElementById("score").innerHTML = "";
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("round").innerHTML = "";
+      document.getElementById("greetingRounds").innerHTML = "";
+      document.getElementById("score").innerHTML = "";
 
-    document.getElementById("choose").style.display = "none";
+      document.getElementById("choose").style.display = "none";
 
-    document.getElementById("bestOf").style.display = "block";
+      document.getElementById("bestOf").style.display = "block";
 
-    document.getElementById("greetingDifficulty").innerHTML = '';
+      document.getElementById("greetingDifficulty").innerHTML = "";
+
+      document.getElementById("playerNameBigScore").innerHTML = "";
+  document.getElementById("bigScoreNumberPlayer").innerHTML = "";
+  document.getElementById("comNameBigScore").innerHTML = "";
+  document.getElementById("bigScoreNumberCom").innerHTML = "";
+    }
   }
-}
-}
-
 
 function difficulty(input) {
   difficultyLevel = input;
@@ -99,7 +126,13 @@ function bestOf(bestOfInput) {
 
   document.getElementById("bestOf").style.display = "none";
   document.getElementById("choose").style.display = "block";
-  document.getElementById("greetingDifficulty").innerHTML = "The difficulty is " + difficultyLevel.toLowerCase() + '.';
+  document.getElementById("greetingDifficulty").innerHTML =
+    "The difficulty is " + difficultyLevel.toLowerCase() + ".";
+
+    document.getElementById("playerNameBigScore").innerHTML = playerName;
+    document.getElementById("bigScoreNumberPlayer").innerHTML = "0";
+    document.getElementById("comNameBigScore").innerHTML = "Computer"
+    document.getElementById("bigScoreNumberCom").innerHTML = "0"
 }
 
 function oneRoundNormal(playerChoice) {
@@ -290,4 +323,6 @@ function oneRoundNormal(playerChoice) {
       overallScoreCom +
       " Computer";
   }
+  document.getElementById("bigScoreNumberPlayer").innerHTML = scoreP1;
+  document.getElementById("bigScoreNumberCom").innerHTML = scoreCom;
 }

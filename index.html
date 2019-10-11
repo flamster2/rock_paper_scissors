@@ -3,8 +3,14 @@
 <html>
   <head>
     <title>Rock, Paper, Scissors</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/wss/fonts?families=SF+Pro,v2|SF+Pro+Icons,v1">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="/wss/fonts?families=SF+Pro,v2|SF+Pro+Icons,v1"
+    />
   </head>
 
   <body>
@@ -13,40 +19,48 @@
     </div>
 
     <div class="navbar">
-      <div class="subnav">
-        <button class="subnavbtn" id="playerName">
+      <div class="dropdown">
+        <button class="dropbtn" id="playerName">
           New player
         </button>
-        <div class="subnav-content">
+        <div class="dropdown-content">
           <a onclick="enterName()">Change player name</a>
         </div>
       </div>
 
-      <div class="subnav">
-          <div class="subnav">
-              <a class="subnavbtn" id="newGame" onclick="newGame()">New game</a>
-          </div>
-      </div>
+      <a class="dropbtn" id="gameButton" onclick="newGame()">
+        New game
+      </a>
 
-      <div class="subnav">
-        <button class="subnavbtn" id="selectedDifficulty">
-          Difficulty: select
+      <div class="dropdown">
+        <button class="dropbtn" id="selectedDifficulty">
+          Difficulty: Normal
+          <i class="fa fa-caret-down2"></i>
         </button>
-        <div class="subnav-content">
+        <div class="dropdown-content">
           <a onclick="difficulty('Normal')">Normal</a>
           <a onclick="difficulty('Hard')">Hard</a>
         </div>
       </div>
 
-      <div class="subnav">
-        <p class="subnavbtn" id="overallScore">Stats</p>
-        <div class="subnav-content">
+      <div class="dropdown">
+        <button class="dropbtn" id="overallScore">
+          Stats
+          <i class="fa fa-caret-down2"></i>
+        </button>
+        <div class="dropdown-content">
           <a onclick="reset()">Reset</a>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class ="container">
+    <div class="column left">
+      <p class = "nameAboveScore" id = "playerNameBigScore">Guest</p>
+      <p class = bigNumber id = "bigScoreNumberPlayer">0</p>
+    </div>
+      <div class="column middle">
+
       <br />
       <p id="greeting"></p>
 
@@ -78,6 +92,12 @@
       <p id="round"></p>
     </div>
 
+    <div class="column right">
+        <p class = "nameAboveScoreCom" id = "comNameBigScore">Computer</p>
+        <p class = bigNumber id = "bigScoreNumberCom">0</p>
+      </div>
+
+  </div>
     <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </body>
